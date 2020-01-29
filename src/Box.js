@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
 export class Box extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      height: 100,
-      width: 200,
-      bg: 'blue'
-    };
+  // constructor(props) {
+  //   super(props);
+  //   // this.state = {
+  //   //   height: 100,
+  //   //   width: 200,
+  //   //   bg: 'blue'
+  //   // };
+  // }
+  blabla() {
+    // console.log(this.props.id);
+    // console.log(this.props.height);
+    // let t = this.props.id;
+    console.log('fghjklkjhbvc');
   }
   render() {
-    let h = this.state.height;
     return (
       <div>
         <div
+          key={`${this.props.id}`}
           style={{
-            height: this.state.height,
-            width: this.state.width,
-            backgroundColor: `${this.state.bg}`
+            height: this.props.height,
+            width: this.props.width,
+            backgroundColor: `${this.props.bgc}`
           }}
         >
-          <button style={{ float: 'right' }}>Delete</button>
+          <button className="deletebutton" onClick={this.blabla}>
+            X
+          </button>
         </div>
       </div>
     );

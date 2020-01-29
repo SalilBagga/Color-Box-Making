@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+.deletebutton {
+  float: 'right';
+  color: 'black';
+  height: '20px';
+  width: '20px';
+  text-align: 'center';
+  border-radius: '50%';
+  border-color: 'white';
+  background-color: 'white';
+  border-color: 'transparent';
+}

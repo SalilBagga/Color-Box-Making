@@ -1,49 +1,45 @@
 import React, { Component } from 'react';
-// import Box from './Box';
+import Box from './Box';
 import NewBoxForm from './NewBoxForm';
+// import uuid from 'uuid/v4';
 
 export class BoxList extends Component {
   constructor(props) {
     super(props);
     // default fullName is an empty string
     this.state = {
-      boxlist: [
-        {
-          Height: 0,
-          Width: 0,
-          color: ''
-        }
-      ]
+      boxlist: []
     };
     this.addBoxlist = this.addBoxlist.bind(this);
   }
-  // //   handleChange(evt) {
-  //     this.setState({
-  //       [evt.target.name]: evt.target.value
-  //     });
-  //   }
   addBoxlist(list) {
     this.setState(lst => ({
       boxlist: [...lst.boxlist, list]
     }));
   }
+  // deleteBox(id) {
+  //   this.setState(idno=>({
+  //     boxlist: idno.id ===id ? remove
+  //   }))
+  // }
+
+  renderBox(boxitem) {
+    return (
+      <div key="alpha">
+        {this.state.boxlist.map((item, i) => (
+          <Box id={i} height={`${item.Height}px`} width={`${item.Width}px`} bgc={item.color} />
+        ))}
+      </div>
+    );
+  }
 
   render() {
+    console.log(this.state.boxlist);
     return (
-      <div>
+      <div key="beta">
         <h1>BoxList</h1>
-        <form>
-          <label htmlFor="Height">Height:-</label>
-          <input name="Height" value={this.state.Height} onChange={this.handleChange} />
-          <br />
-          <label htmlFor="Width">Width:- </label>
-          <input name="Width" value={this.state.Width} onChange={this.handleChange} />
-          <br />
-          <label htmlFor="Color">Color :- </label>
-          <input name="Color" value={this.state.color} onChange={this.handleChange} />
-          <br />
-        </form>
-        {/* <Box /> */}
+        <NewBoxForm addBox={this.addBoxlist} />
+        {this.renderBox()}
       </div>
     );
   }
