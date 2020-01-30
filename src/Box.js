@@ -1,19 +1,5 @@
 import React, { Component } from 'react';
 export class Box extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   // this.state = {
-  //   //   height: 100,
-  //   //   width: 200,
-  //   //   bg: 'blue'
-  //   // };
-  // }
-  blabla() {
-    // console.log(this.props.id);
-    // console.log(this.props.height);
-    // let t = this.props.id;
-    console.log('fghjklkjhbvc');
-  }
   render() {
     return (
       <div>
@@ -25,7 +11,7 @@ export class Box extends Component {
             backgroundColor: `${this.props.bgc}`
           }}
         >
-          <button className="deletebutton" onClick={this.blabla}>
+          <button className="deletebutton" onClick={this.props.removeBox}>
             X
           </button>
         </div>

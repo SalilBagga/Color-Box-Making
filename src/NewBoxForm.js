@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
-// import BoxList from './BoxList';
-// import Box from './Box';
+
+import uuid from 'uuid/v4';
 
 export class NewBoxForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { Height: '', Width: '', color: '' };
-    // this.addBoxlist = this.addBoxlist.bind(this);
+    this.state = { id: '', Height: '', Width: '', color: '' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(evt) {
     this.setState({
       [evt.target.name]: evt.target.value
     });
   }
+
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.addBox(this.state);
-    // this.props.addBox(this.state);
-    this.setState({ Height: '', Width: '', color: '' });
+    const newbox = { ...this.state, id: uuid() };
+    this.props.addBox(newbox);
+    this.setState({ id: '', Height: '', Width: '', color: '' });
   }
+
   render() {
     return (
       <div>
